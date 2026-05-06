@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="أدوات TechPulse Arabia — أفضل أدوات الذكاء الاصطناعي والبرمجة مجاناً">
+<title>الأدوات | TechPulse Arabia</title>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06060e;--bg2:#0b0b16;--bg3:#0f0f1c;--card:#111120;--card2:#16162a;
+  --accent:#00e5ff;--accent2:#ff4d6d;--accent3:#7b2fff;--gold:#f5c518;
+  --text:#eeeef5;--text2:#8888aa;--text3:#44445a;
+  --border:#1e1e36;--border2:#2a2a48;
+  --font-ar:'Cairo','Tajawal',sans-serif;--font-mono:'IBM Plex Mono',monospace;
+  --r:16px;--shadow:0 8px 40px rgba(0,0,0,.6);--glow:0 0 60px rgba(0,229,255,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ar);line-height:1.75;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,229,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.025) 1px,transparent 1px);background-size:72px 72px;}
+.bg-orb{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(100px);}
+.bg-orb1{width:500px;height:500px;background:rgba(0,229,255,.04);top:-150px;right:-150px;}
+.bg-orb2{width:400px;height:400px;background:rgba(123,47,255,.04);bottom:-150px;left:-150px;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:0 2rem;background:rgba(6,6,14,.82);backdrop-filter:blur(24px);border-bottom:1px solid var(–border);}
+.nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none;}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(–accent),var(–accent3));display:flex;align-items:center;justify-content:center;font-family:var(–font-mono);font-weight:700;font-size:.95rem;color:#000;box-shadow:0 0 20px rgba(0,229,255,.35);}
+.logo-text{line-height:1.15;}
+.logo-en{font-family:var(–font-mono);font-size:.95rem;font-weight:700;color:var(–accent);}
+.logo-ar{font-size:.68rem;color:var(–text3);font-weight:300;}
+.nav-links{display:flex;gap:.1rem;list-style:none;}
+.nav-links a{display:block;padding:.45rem .9rem;color:var(–text2);text-decoration:none;font-size:.88rem;border-radius:8px;transition:all .2s;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{color:var(–accent);background:rgba(0,229,255,.07);}
+.nav-actions{display:flex;align-items:center;gap:.6rem;}
+.btn-icon{width:38px;height:38px;border:1px solid var(–border);border-radius:9px;background:transparent;color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.95rem;text-decoration:none;}
+.btn-icon:hover{border-color:var(–accent);color:var(–accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.hamburger span{width:22px;height:2px;background:var(–text2);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(–bg2);border-bottom:1px solid var(–border);padding:1rem 2rem;z-index:999;}
+.mobile-nav a{display:block;padding:.6rem 0;color:var(–text2);text-decoration:none;font-size:.92rem;border-bottom:1px solid var(–border);transition:color .2s;}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav a:hover{color:var(–accent);}
+
+/* PAGE HERO */
+.page-hero{padding:120px 2rem 3rem;text-align:center;position:relative;z-index:1;}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:.75rem;}
+.page-hero h1 span{background:linear-gradient(120deg,var(–accent),var(–accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero p{color:var(–text2);font-size:1rem;font-weight:300;max-width:520px;margin:0 auto 1.5rem;}
+.hero-stats-sm{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;}
+.stat-sm{text-align:center;}
+.stat-sm-n{font-family:var(–font-mono);font-size:1.4rem;font-weight:700;color:var(–accent);display:block;}
+.stat-sm-l{font-size:.75rem;color:var(–text3);}
+
+/* CONTAINER */
+.container{max-width:1360px;margin:0 auto;padding:0 2rem;}
+section{position:relative;z-index:1;}
+
+/* AD */
+.ad-wrap{padding:1.2rem 0;position:relative;z-index:1;}
+.ad-unit{background:var(–bg2);border:1px dashed var(–border2);border-radius:var(–r);display:flex;align-items:center;justify-content:center;color:var(–text3);font-size:.75rem;font-family:var(–font-mono);text-align:center;padding:1rem;}
+.ad-banner{min-height:90px;width:100%;}
+.ad-square{min-height:250px;width:100%;}
+.ad-unit small{display:block;font-size:.62rem;margin-bottom:.3rem;}
+
+/* SEARCH BAR */
+.tools-search{
+max-width:600px;margin:0 auto 2.5rem;
+position:relative;z-index:1;
+}
+.tools-search-wrap{
+display:flex;align-items:center;
+background:var(–card);border:1px solid var(–border2);
+border-radius:12px;padding:.75rem 1.2rem;gap:.8rem;
+}
+.tools-search-wrap:focus-within{border-color:var(–accent);}
+.tools-search-wrap input{
+flex:1;background:transparent;border:none;color:var(–text);
+font-family:var(–font-ar);font-size:1rem;outline:none;text-align:right;
+}
+
+/* FILTER TABS */
+.filters-bar{
+display:flex;align-items:center;justify-content:center;
+padding:0 0 2rem;flex-wrap:wrap;gap:.5rem;
+position:relative;z-index:1;
+}
+.filter-tab{
+padding:.4rem 1rem;border:1px solid var(–border);border-radius:50px;
+font-size:.82rem;color:var(–text2);cursor:pointer;transition:all .2s;
+background:transparent;font-family:var(–font-ar);
+}
+.filter-tab:hover,.filter-tab.active{
+border-color:var(–accent);color:var(–accent);
+background:rgba(0,229,255,.06);
+}
+
+/* TOOLS GRID */
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1.25rem;
+margin-bottom:2rem;
+position:relative;z-index:1;
+}
+
+/* TOOL CARD */
+.tool-card{
+background:var(–card);border:1px solid var(–border);
+border-radius:var(–r);padding:1.5rem;
+cursor:pointer;transition:all .3s;
+text-decoration:none;color:inherit;
+display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.tool-card::before{
+content:’’;position:absolute;top:0;right:0;
+width:120px;height:120px;
+background:radial-gradient(circle,rgba(0,229,255,.06),transparent);
+pointer-events:none;
+}
+.tool-card:hover{
+border-color:rgba(0,229,255,.3);
+transform:translateY(-4px);
+box-shadow:var(–shadow),var(–glow);
+}
+.tool-card.featured{
+border-color:rgba(245,197,24,.25);
+background:linear-gradient(135deg,#111120,#16140a);
+}
+.tool-card.featured::before{background:radial-gradient(circle,rgba(245,197,24,.06),transparent);}
+.tool-card.featured:hover{border-color:rgba(245,197,24,.5);box-shadow:0 0 40px rgba(245,197,24,.1);}
+
+.tool-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;}
+.tool-icon{
+width:52px;height:52px;border-radius:13px;
+display:flex;align-items:center;justify-content:center;
+font-size:1.6rem;flex-shrink:0;
+background:linear-gradient(135deg,#0f0f22,#1a1a3a);
+}
+.tool-badges{display:flex;flex-direction:column;align-items:flex-end;gap:.35rem;}
+.badge{font-size:.65rem;font-family:var(–font-mono);padding:.2rem .55rem;border-radius:50px;font-weight:700;}
+.badge-free{background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.25);}
+.badge-paid{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25);}
+.badge-freemium{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.25);}
+.badge-hot{background:rgba(255,77,109,.15);color:#ff4d6d;border:1px solid rgba(255,77,109,.25);}
+.badge-new{background:rgba(0,229,255,.15);color:var(–accent);border:1px solid rgba(0,229,255,.25);}
+.badge-gold{background:rgba(245,197,24,.15);color:var(–gold);border:1px solid rgba(245,197,24,.25);}
+
+.tool-name{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;}
+.tool-cat-tag{
+font-size:.68rem;font-family:var(–font-mono);
+padding:.18rem .55rem;border-radius:4px;
+display:inline-block;margin-bottom:.65rem;
+}
+.c-ai{background:rgba(123,47,255,.9);color:#ddd0ff;}
+.c-web{background:rgba(0,229,255,.9);color:#000;}
+.c-design{background:rgba(255,77,109,.9);color:#fff;}
+.c-code{background:rgba(34,197,94,.9);color:#000;}
+.c-prod{background:rgba(251,191,36,.9);color:#000;}
+.c-write{background:rgba(56,189,248,.9);color:#000;}
+.c-data{background:rgba(168,85,247,.9);color:#fff;}
+.c-seo{background:rgba(249,115,22,.9);color:#fff;}
+
+.tool-desc{font-size:.84rem;color:var(–text2);line-height:1.6;flex:1;font-weight:300;}
+.tool-footer{
+display:flex;align-items:center;justify-content:space-between;
+margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(–border);
+}
+.tool-rating{display:flex;align-items:center;gap:.3rem;font-size:.82rem;color:var(–gold);}
+.tool-users{font-size:.72rem;color:var(–text3);font-family:var(–font-mono);}
+.tool-link{
+font-size:.75rem;color:var(–accent);font-family:var(–font-mono);
+display:flex;align-items:center;gap:.3rem;
+text-decoration:none;transition:opacity .2s;
+}
+.tool-link:hover{opacity:.75;}
+
+/* FEATURED TOOL (wide) */
+.tool-card-wide{
+grid-column:span 2;
+display:grid;grid-template-columns:1fr auto;
+gap:1.5rem;align-items:center;
+}
+.tool-wide-left{display:flex;flex-direction:column;}
+.tool-wide-right{
+display:flex;flex-direction:column;gap:.65rem;
+align-items:flex-end;min-width:160px;
+}
+.btn-try{
+padding:.6rem 1.4rem;
+background:linear-gradient(135deg,var(–accent),#007acc);
+color:#000;border:none;border-radius:8px;
+font-family:var(–font-ar);font-weight:700;font-size:.85rem;
+cursor:pointer;text-decoration:none;transition:all .3s;
+display:inline-flex;align-items:center;gap:.4rem;
+box-shadow:0 0 20px rgba(0,229,255,.25);
+}
+.btn-try:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(0,229,255,.4);}
+.btn-try-outline{
+padding:.6rem 1.4rem;background:transparent;
+color:var(–text2);border:1px solid var(–border2);
+border-radius:8px;font-family:var(–font-ar);font-size:.85rem;
+cursor:pointer;text-decoration:none;transition:all .3s;
+display:inline-flex;align-items:center;gap:.4rem;
+}
+.btn-try-outline:hover{border-color:var(–accent);color:var(–accent);}
+
+/* SECTION HEAD */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;position:relative;z-index:1;}
+.section-label{display:flex;align-items:center;gap:.75rem;}
+.section-label h2{font-size:1.5rem;font-weight:700;}
+.tag-badge{font-family:var(–font-mono);font-size:.68rem;padding:.2rem .6rem;border:1px solid var(–accent);border-radius:5px;color:var(–accent);}
+.section-pad{padding:5rem 0 2rem;}
+
+/* COMPARISON TABLE */
+.compare-table{
+background:var(–card);border:1px solid var(–border);
+border-radius:var(–r);overflow:hidden;margin-bottom:4rem;
+position:relative;z-index:1;
+}
+.compare-table table{width:100%;border-collapse:collapse;}
+.compare-table th{
+background:var(–bg2);padding:1rem 1.2rem;
+font-size:.82rem;font-weight:700;color:var(–text2);
+font-family:var(–font-mono);text-align:center;
+border-bottom:1px solid var(–border);
+}
+.compare-table th:first-child{text-align:right;}
+.compare-table td{
+padding:.9rem 1.2rem;font-size:.85rem;
+border-bottom:1px solid var(–border);text-align:center;
+color:var(–text2);
+}
+.compare-table td:first-child{text-align:right;font-weight:600;color:var(–text);}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:hover td{background:var(–card2);}
+.check{color:#4ade80;font-size:1rem;}
+.cross{color:#f87171;font-size:1rem;}
+.partial{color:#fbbf24;font-size:1rem;}
+
+/* SEARCH OVERLAY */
+.search-overlay{position:fixed;inset:0;background:rgba(6,6,14,.97);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:15vh;opacity:0;pointer-events:none;transition:opacity .3s;}
+.search-overlay.open{opacity:1;pointer-events:all;}
+.search-box{width:100%;max-width:680px;padding:0 2rem;}
+.search-wrap{display:flex;align-items:center;background:var(–card);border:1px solid var(–border2);border-radius:14px;padding:.9rem 1.4rem;gap:1rem;}
+.search-wrap:focus-within{border-color:var(–accent);}
+#s-input{flex:1;background:transparent;border:none;color:var(–text);font-family:var(–font-ar);font-size:1.15rem;outline:none;text-align:right;}
+.s-hint{font-family:var(–font-mono);font-size:.73rem;color:var(–text3);margin-top:.9rem;text-align:center;}
+
+/* FOOTER */
+footer{background:var(–bg2);border-top:1px solid var(–border);padding:4rem 0 2rem;margin-top:2rem;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.f-brand p{font-size:.85rem;color:var(–text2);margin:1rem 0 1.4rem;font-weight:300;line-height:1.75;}
+.social-row{display:flex;gap:.65rem;}
+.f-col h4{font-size:.88rem;font-weight:700;margin-bottom:1.2rem;color:var(–text);}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.f-links a{font-size:.83rem;color:var(–text2);text-decoration:none;transition:color .2s;font-weight:300;}
+.f-links a:hover{color:var(–accent);}
+.footer-bottom{padding-top:2rem;border-top:1px solid var(–border);display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(–text3);font-family:var(–font-mono);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+.tools-grid{grid-template-columns:repeat(2,1fr);}
+.tool-card-wide{grid-column:span 2;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+.nav-links{display:none;}.hamburger{display:flex;}
+.tools-grid{grid-template-columns:1fr;}
+.tool-card-wide{grid-column:span 1;grid-template-columns:1fr;}
+.tool-wide-right{align-items:flex-start;}
+.footer-grid{grid-template-columns:1fr;gap:2rem;}
+.footer-bottom{flex-direction:column;gap:.8rem;text-align:center;}
+.compare-table{overflow-x:auto;}
+}
+</style>
+
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb1"></div>
+<div class="bg-orb bg-orb2"></div>
+
+<!-- SEARCH -->
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-wrap">
+      <span style="font-size:1.2rem">🔍</span>
+      <input type="text" id="s-input" placeholder="ابحث عن أداة...">
+      <span style="font-size:1.2rem;cursor:pointer;color:var(--text3)" onclick="closeSearch()">✕</span>
+    </div>
+    <p class="s-hint">اضغط ESC للإغلاق</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">TP</div>
+      <div class="logo-text">
+        <span class="logo-en">TechPulse</span>
+        <span class="logo-ar">تقنية بلا حدود</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="articles.html">المقالات</a></li>
+      <li><a href="tools.html" class="active">الأدوات</a></li>
+      <li><a href="articles.html#tutorials">الشروحات</a></li>
+      <li><a href="#footer">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-icon" onclick="openSearch()">🔍</button>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">🏠 الرئيسية</a>
+    <a href="articles.html">📰 المقالات</a>
+    <a href="tools.html">🛠️ الأدوات</a>
+    <a href="articles.html#tutorials">📚 الشروحات</a>
+    <a href="#footer">📩 تواصل معنا</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+
+<div class="page-hero">
+  <h1>🛠️ <span>أفضل الأدوات التقنية</span></h1>
+  <p>مجموعة مختارة بعناية من أفضل أدوات الذكاء الاصطناعي، البرمجة، والتصميم — مجانية ومدفوعة</p>
+  <div class="hero-stats-sm">
+    <div class="stat-sm"><span class="stat-sm-n">120+</span><div class="stat-sm-l">أداة مختارة</div></div>
+    <div class="stat-sm"><span class="stat-sm-n">8</span><div class="stat-sm-l">تصنيف</div></div>
+    <div class="stat-sm"><span class="stat-sm-n">70%</span><div class="stat-sm-l">أدوات مجانية</div></div>
+  </div>
+</div>
+
+<!-- AD TOP -->
+
+<div class="ad-wrap"><div class="container">
+  <div class="ad-unit ad-banner"><div><small>إعلان / Advertisement</small>728×90 — Banner Ad</div></div>
+</div></div>
+
+<!-- TOOLS SEARCH -->
+
+<div class="container">
+  <div class="tools-search">
+    <div class="tools-search-wrap">
+      <span style="font-size:1.1rem;color:var(--text3)">🔍</span>
+      <input type="text" id="toolSearch" placeholder="ابحث عن أداة مثل: ChatGPT, Figma, VS Code..." oninput="searchTools(this.value)">
+    </div>
+  </div>
+  <!-- FILTER TABS -->
+  <div class="filters-bar">
+    <button class="filter-tab active" onclick="filterTools(this,'all')">الكل</button>
+    <button class="filter-tab" onclick="filterTools(this,'ai')">🤖 ذكاء اصطناعي</button>
+    <button class="filter-tab" onclick="filterTools(this,'code')">💻 برمجة وكود</button>
+    <button class="filter-tab" onclick="filterTools(this,'design')">🎨 تصميم</button>
+    <button class="filter-tab" onclick="filterTools(this,'prod')">⚡ إنتاجية</button>
+    <button class="filter-tab" onclick="filterTools(this,'write')">✍️ كتابة</button>
+    <button class="filter-tab" onclick="filterTools(this,'data')">📊 بيانات</button>
+    <button class="filter-tab" onclick="filterTools(this,'seo')">🔍 سيو وتسويق</button>
+  </div>
+</div>
+
+<!-- TOOLS GRID -->
+
+<div class="container">
+  <div class="tools-grid fade-up" id="toolsGrid">
+
+```
+<!-- FEATURED WIDE CARD -->
+<div class="tool-card tool-card-wide featured" data-cat="ai" data-name="chatgpt">
+  <div class="tool-wide-left">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <div class="tool-icon">🤖</div>
+      <div>
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;">
+          <span class="tool-name">ChatGPT</span>
+          <span class="badge badge-hot">🔥 الأكثر استخداماً</span>
+          <span class="badge badge-gold">⭐ مختار</span>
+        </div>
+        <span class="tool-cat-tag c-ai">🤖 ذكاء اصطناعي</span>
+      </div>
+    </div>
+    <p class="tool-desc">نموذج لغوي من OpenAI يفهم ويكتب العربية بشكل ممتاز. يساعدك في الكتابة، البرمجة، الترجمة، التلخيص، وتحليل البيانات. النسخة المجانية قوية جداً، والـ Plus تدعم GPT-4o ومحادثات الصوت.</p>
+    <div style="display:flex;gap:.5rem;margin-top:.8rem;flex-wrap:wrap;">
+      <span class="badge badge-freemium">Freemium</span>
+      <div class="tool-rating">⭐⭐⭐⭐⭐ <span style="color:var(--text3);margin-right:.3rem">4.9</span></div>
+      <span class="tool-users">👥 +200M مستخدم</span>
+    </div>
+  </div>
+  <div class="tool-wide-right">
+    <a href="https://chatgpt.com" target="_blank" rel="noopener" class="btn-try">🚀 جرب الآن</a>
+    <a href="articles.html#article10" class="btn-try-outline">📖 قرأ الشرح</a>
+  </div>
+</div>
+
+<!-- TOOL 2 -->
+<div class="tool-card" data-cat="ai" data-name="claude">
+  <div class="tool-header">
+    <div class="tool-icon">🧠</div>
+    <div class="tool-badges">
+      <span class="badge badge-new">✨ جديد</span>
+      <span class="badge badge-freemium">Freemium</span>
+    </div>
+  </div>
+  <span class="tool-cat-tag c-ai">🤖 ذكاء اصطناعي</span>
+  <div class="tool-name">Claude AI</div>
+  <p class="tool-desc">نموذج من Anthropic يتميز بالتفكير العميق والردود الطويلة. ممتاز لتحليل المستندات، الكتابة الإبداعية، وفهم السياق المعقد.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.8</div><span class="tool-users">👥 +50M</span></div>
+    <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 3 -->
+<div class="tool-card" data-cat="ai" data-name="gemini">
+  <div class="tool-header">
+    <div class="tool-icon">💎</div>
+    <div class="tool-badges">
+      <span class="badge badge-free">مجاني</span>
+    </div>
+  </div>
+  <span class="tool-cat-tag c-ai">🤖 ذكاء اصطناعي</span>
+  <div class="tool-name">Google Gemini</div>
+  <p class="tool-desc">نموذج Google المتكامل مع خدماتهم. يدعم Docs وSheets مباشرة. Gemini 2.5 Pro مجاني وقوي جداً مع دعم ممتاز للعربية.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.6</div><span class="tool-users">👥 +100M</span></div>
+    <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- AD IN GRID -->
+<div class="ad-unit" style="border-radius:var(--r);min-height:200px" data-cat="ad">
+  <div><small>إعلان / Ad</small>300×250 Native Ad</div>
+</div>
+
+<!-- TOOL 4 -->
+<div class="tool-card" data-cat="code" data-name="cursor">
+  <div class="tool-header">
+    <div class="tool-icon">⚡</div>
+    <div class="tool-badges">
+      <span class="badge badge-hot">🔥 رائج</span>
+      <span class="badge badge-freemium">Freemium</span>
+    </div>
+  </div>
+  <span class="tool-cat-tag c-code">💻 برمجة</span>
+  <div class="tool-name">Cursor AI</div>
+  <p class="tool-desc">أفضل محرر كود مدعوم بـ AI في 2026. يكمل الكود، يشرح الأخطاء، ويكتب الدوال كاملة بناء على وصفك بالعربية أو الإنجليزية.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.9</div><span class="tool-users">👥 +5M</span></div>
+    <a href="https://cursor.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 5 -->
+<div class="tool-card" data-cat="code" data-name="github copilot">
+  <div class="tool-header">
+    <div class="tool-icon">🐙</div>
+    <div class="tool-badges"><span class="badge badge-paid">مدفوع</span></div>
+  </div>
+  <span class="tool-cat-tag c-code">💻 برمجة</span>
+  <div class="tool-name">GitHub Copilot</div>
+  <p class="tool-desc">مساعد البرمجة الأشهر من Microsoft/GitHub. متكامل مع VS Code ويقترح الكود مباشرة أثناء الكتابة بدقة عالية.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.7</div><span class="tool-users">👥 +15M</span></div>
+    <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 6 -->
+<div class="tool-card" data-cat="design" data-name="figma">
+  <div class="tool-header">
+    <div class="tool-icon">🎨</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-design">🎨 تصميم</span>
+  <div class="tool-name">Figma</div>
+  <p class="tool-desc">الأداة الأولى عالمياً في تصميم واجهات المستخدم. تشاركي، سريع، ومدعوم الآن بميزات AI لإنشاء التصاميم تلقائياً.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.8</div><span class="tool-users">👥 +4M شركة</span></div>
+    <a href="https://figma.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 7 -->
+<div class="tool-card" data-cat="ai" data-name="midjourney">
+  <div class="tool-header">
+    <div class="tool-icon">🖼️</div>
+    <div class="tool-badges"><span class="badge badge-paid">مدفوع</span></div>
+  </div>
+  <span class="tool-cat-tag c-ai">🤖 ذكاء اصطناعي</span>
+  <div class="tool-name">Midjourney v7</div>
+  <p class="tool-desc">أفضل أداة لتوليد الصور بالذكاء الاصطناعي. النتائج احترافية وتُستخدم في المجلات والإعلانات الكبرى حول العالم.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.9</div><span class="tool-users">👥 +20M</span></div>
+    <a href="https://midjourney.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 8 -->
+<div class="tool-card" data-cat="prod" data-name="notion">
+  <div class="tool-header">
+    <div class="tool-icon">📝</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-prod">⚡ إنتاجية</span>
+  <div class="tool-name">Notion AI</div>
+  <p class="tool-desc">منصة الإنتاجية الشاملة الآن مع AI. دوّن الملاحظات، أدر المشاريع، وخلّي AI يكتب ويلخص ويترجم لك مباشرة.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.6</div><span class="tool-users">👥 +30M</span></div>
+    <a href="https://notion.so" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 9 -->
+<div class="tool-card" data-cat="write" data-name="jasper">
+  <div class="tool-header">
+    <div class="tool-icon">✍️</div>
+    <div class="tool-badges"><span class="badge badge-paid">مدفوع</span></div>
+  </div>
+  <span class="tool-cat-tag c-write">✍️ كتابة</span>
+  <div class="tool-name">Jasper AI</div>
+  <p class="tool-desc">أداة كتابة المحتوى التسويقي بالذكاء الاصطناعي. مخصصة للمسوقين والكتّاب لإنشاء مدونات، إعلانات، ومحتوى وسائل التواصل.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.5</div><span class="tool-users">👥 +100K شركة</span></div>
+    <a href="https://jasper.ai" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- AD IN GRID 2 -->
+<div class="ad-unit" style="border-radius:var(--r);min-height:200px" data-cat="ad">
+  <div><small>إعلان / Ad</small>Native Ad</div>
+</div>
+
+<!-- TOOL 10 -->
+<div class="tool-card" data-cat="data" data-name="tableau">
+  <div class="tool-header">
+    <div class="tool-icon">📊</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-data">📊 بيانات</span>
+  <div class="tool-name">Tableau</div>
+  <p class="tool-desc">أداة تحليل وعرض البيانات الأشهر في العالم. تحول البيانات الخام إلى لوحات بيانية تفاعلية ومرئية بسهولة تامة.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.6</div><span class="tool-users">👥 +1M</span></div>
+    <a href="https://tableau.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 11 -->
+<div class="tool-card" data-cat="seo" data-name="semrush">
+  <div class="tool-header">
+    <div class="tool-icon">🔍</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-seo">🔍 سيو</span>
+  <div class="tool-name">SEMrush</div>
+  <p class="tool-desc">أداة السيو الشاملة لتحليل المنافسين، بحث الكلمات المفتاحية، ورصد ترتيب موقعك على Google. الأفضل للمسوقين الرقميين.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.7</div><span class="tool-users">👥 +10M</span></div>
+    <a href="https://semrush.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 12 -->
+<div class="tool-card" data-cat="code" data-name="docker">
+  <div class="tool-header">
+    <div class="tool-icon">🐳</div>
+    <div class="tool-badges"><span class="badge badge-free">مجاني</span></div>
+  </div>
+  <span class="tool-cat-tag c-code">💻 برمجة</span>
+  <div class="tool-name">Docker</div>
+  <p class="tool-desc">أداة containerization الأشهر لنشر التطبيقات. تعزل بيئة التطوير وتضمن عمل التطبيق بنفس الطريقة في كل مكان.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.8</div><span class="tool-users">👥 +20M مطور</span></div>
+    <a href="https://docker.com" target="_blank" rel="noopener" class="tool-link">جرّب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 13 -->
+<div class="tool-card" data-cat="design" data-name="canva">
+  <div class="tool-header">
+    <div class="tool-icon">🖌️</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-design">🎨 تصميم</span>
+  <div class="tool-name">Canva</div>
+  <p class="tool-desc">أداة التصميم الأسهل لغير المتخصصين. ملايين القوالب، Magic Design بالذكاء الاصطناعي، وإنتاج محتوى بصري احترافي بدقائق.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.7</div><span class="tool-users">👥 +150M</span></div>
+    <a href="https://canva.com" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 14 -->
+<div class="tool-card" data-cat="prod" data-name="linear">
+  <div class="tool-header">
+    <div class="tool-icon">📋</div>
+    <div class="tool-badges"><span class="badge badge-freemium">Freemium</span></div>
+  </div>
+  <span class="tool-cat-tag c-prod">⚡ إنتاجية</span>
+  <div class="tool-name">Linear</div>
+  <p class="tool-desc">أداة إدارة المشاريع البرمجية الأسرع والأجمل. تُستخدم من أسرع الشركات الناشئة في العالم لتتبع المهام والـ sprints.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐⭐ 4.8</div><span class="tool-users">👥 +25K شركة</span></div>
+    <a href="https://linear.app" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+
+<!-- TOOL 15 -->
+<div class="tool-card" data-cat="ai" data-name="perplexity">
+  <div class="tool-header">
+    <div class="tool-icon">🔮</div>
+    <div class="tool-badges"><span class="badge badge-free">مجاني</span><span class="badge badge-new">✨ جديد</span></div>
+  </div>
+  <span class="tool-cat-tag c-ai">🤖 ذكاء اصطناعي</span>
+  <div class="tool-name">Perplexity AI</div>
+  <p class="tool-desc">محرك بحث ذكي يجيب بدلاً من مجرد الفهرسة. يبحث في الإنترنت ويعطيك إجابات مباشرة مع المصادر. بديل مذهل لـ Google.</p>
+  <div class="tool-footer">
+    <div><div class="tool-rating">⭐⭐⭐⭐ 4.7</div><span class="tool-users">👥 +15M</span></div>
+    <a href="https://perplexity.ai" target="_blank" rel="noopener" class="tool-link">جرب ←</a>
+  </div>
+</div>
+```
+
+  </div><!-- end tools-grid -->
+
+  <!-- NO RESULTS -->
+
+  <div id="noResults" style="display:none;text-align:center;padding:3rem;color:var(--text3);">
+    <div style="font-size:3rem;margin-bottom:1rem">🔍</div>
+    <p>لم يتم العثور على أداة بهذا الاسم</p>
+  </div>
+</div>
+
+<!-- AD MID -->
+
+<div class="ad-wrap"><div class="container">
+  <div class="ad-unit ad-banner"><div><small>إعلان / Advertisement</small>728×90</div></div>
+</div></div>
+
+<!-- COMPARISON TABLE -->
+
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label"><h2>📊 مقارنة أدوات الذكاء الاصطناعي</h2><span class="tag-badge">COMPARE</span></div>
+    </div>
+    <div class="compare-table fade-up">
+      <table>
+        <thead>
+          <tr>
+            <th>الميزة</th>
+            <th>ChatGPT</th>
+            <th>Claude AI</th>
+            <th>Gemini</th>
+            <th>Perplexity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>دعم اللغة العربية</td><td class="check">✅ ممتاز</td><td class="check">✅ جيد جداً</td><td class="check">✅ ممتاز</td><td class="partial">🟡 جيد</td></tr>
+          <tr><td>نسخة مجانية</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+          <tr><td>تحليل الصور</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td><td class="partial">🟡</td></tr>
+          <tr><td>البحث في الإنترنت</td><td class="check">✅</td><td class="partial">🟡</td><td class="check">✅</td><td class="check">✅ الأفضل</td></tr>
+          <tr><td>طول السياق</td><td class="check">128K</td><td class="check">200K</td><td class="check">1M</td><td class="partial">32K</td></tr>
+          <tr><td>كتابة الكود</td><td class="check">✅ ممتاز</td><td class="check">✅ ممتاز</td><td class="check">✅ جيد</td><td class="cross">❌ محدود</td></tr>
+          <tr><td>السعر (شهري)</td><td>$20</td><td>$20</td><td>$20</td><td>$20</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><div class="logo-mark">TP</div><div class="logo-text"><span class="logo-en">TechPulse Arabia</span><span class="logo-ar">تقنية بلا حدود</span></div></a>
+        <p>منصة تقنية عربية متخصصة في شروحات البرمجة، الذكاء الاصطناعي، وأحدث التقنيات — مجاناً للجميع.</p>
+        <div class="social-row">
+          <a href="#" class="btn-icon">𝕏</a><a href="#" class="btn-icon">📘</a>
+          <a href="#" class="btn-icon">📸</a><a href="#" class="btn-icon">▶️</a><a href="#" class="btn-icon">💼</a>
+        </div>
+      </div>
+      <div class="f-col"><h4>🛠️ تصنيفات الأدوات</h4><ul class="f-links">
+        <li><a href="#" onclick="filterTools(null,'ai')">🤖 ذكاء اصطناعي</a></li>
+        <li><a href="#" onclick="filterTools(null,'code')">💻 برمجة وكود</a></li>
+        <li><a href="#" onclick="filterTools(null,'design')">🎨 تصميم</a></li>
+        <li><a href="#" onclick="filterTools(null,'prod')">⚡ إنتاجية</a></li>
+        <li><a href="#" onclick="filterTools(null,'write')">✍️ كتابة</a></li>
+        <li><a href="#" onclick="filterTools(null,'seo')">🔍 سيو وتسويق</a></li>
+      </ul></div>
+      <div class="f-col"><h4>📚 روابط سريعة</h4><ul class="f-links">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="articles.html">📰 المقالات</a></li>
+        <li><a href="articles.html#tutorials">📚 الشروحات</a></li>
+        <li><a href="articles.html?cat=ai">🤖 مقالات AI</a></li>
+        <li><a href="articles.html?cat=web">💻 مقالات ويب</a></li>
+      </ul></div>
+      <div class="f-col"><h4>ℹ️ الموقع</h4><ul class="f-links">
+        <li><a href="#">من نحن</a></li>
+        <li><a href="#">تواصل معنا</a></li>
+        <li><a href="#">سياسة الخصوصية</a></li>
+        <li><a href="#">شروط الاستخدام</a></li>
+        <li><a href="#">الإعلان معنا</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechPulse Arabia — جميع الحقوق محفوظة</span>
+      <span>Made with ❤️ for Arab Tech Community</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');document.getElementById('s-input').focus();}
+function closeSearch(){document.getElementById('searchOverlay').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();});
+document.getElementById('searchOverlay').addEventListener('click',function(e){if(e.target===this)closeSearch();});
+function toggleMenu(){const m=document.getElementById('mobileNav');m.style.display=m.style.display==='flex'?'none':'flex';}
+
+function filterTools(btn,cat){
+  if(btn){document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  document.querySelectorAll('#toolsGrid > [data-cat]').forEach(card=>{
+    if(card.dataset.cat==='ad'){card.style.display='flex';return;}
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'flex':'none';
+  });
+  checkNoResults();
+}
+
+function searchTools(val){
+  const v=val.toLowerCase().trim();
+  document.querySelectorAll('#toolsGrid > [data-cat]').forEach(card=>{
+    if(card.dataset.cat==='ad'){card.style.display=v?'none':'flex';return;}
+    const name=(card.dataset.name||'').toLowerCase();
+    card.style.display=(!v||name.includes(v))?'flex':'none';
+  });
+  document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
+  if(!v)document.querySelector('.filter-tab').classList.add('active');
+  checkNoResults();
+}
+
+function checkNoResults(){
+  const visible=[...document.querySelectorAll('#toolsGrid > [data-cat]:not([data-cat="ad"])')].filter(c=>c.style.display!=='none');
+  document.getElementById('noResults').style.display=visible.length===0?'block':'none';
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.tool-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width)*100,y=((e.clientY-r.top)/r.height)*100;
+    if(!card.classList.contains('featured'))
+      card.style.background=`radial-gradient(circle at ${x}% ${y}%,#181830 0%,#111120 100%)`;
+  });
+  card.addEventListener('mouseleave',()=>{if(!card.classList.contains('featured'))card.style.background='';});
+});
+</script>
+
+</body>
+</html>
