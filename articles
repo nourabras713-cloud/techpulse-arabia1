@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="مقالات TechPulse Arabia — برمجة، ذكاء اصطناعي، أمن سيبراني، تطوير ويب">
+<title>المقالات | TechPulse Arabia</title>
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Mono:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06060e;--bg2:#0b0b16;--bg3:#0f0f1c;--card:#111120;--card2:#16162a;
+  --accent:#00e5ff;--accent2:#ff4d6d;--accent3:#7b2fff;
+  --text:#eeeef5;--text2:#8888aa;--text3:#44445a;
+  --border:#1e1e36;--border2:#2a2a48;
+  --font-ar:'Cairo','Tajawal',sans-serif;--font-mono:'IBM Plex Mono',monospace;
+  --r:16px;--shadow:0 8px 40px rgba(0,0,0,.6);--glow:0 0 60px rgba(0,229,255,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ar);line-height:1.75;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(0,229,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.025) 1px,transparent 1px);background-size:72px 72px;}
+.bg-orb{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(100px);}
+.bg-orb1{width:500px;height:500px;background:rgba(0,229,255,.04);top:-150px;right:-150px;}
+.bg-orb2{width:400px;height:400px;background:rgba(123,47,255,.04);bottom:-150px;left:-150px;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:0 2rem;background:rgba(6,6,14,.82);backdrop-filter:blur(24px);border-bottom:1px solid var(–border);}
+.nav-inner{max-width:1360px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none;}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(–accent),var(–accent3));display:flex;align-items:center;justify-content:center;font-family:var(–font-mono);font-weight:700;font-size:.95rem;color:#000;box-shadow:0 0 20px rgba(0,229,255,.35);}
+.logo-text{line-height:1.15;}
+.logo-en{font-family:var(–font-mono);font-size:.95rem;font-weight:700;color:var(–accent);}
+.logo-ar{font-size:.68rem;color:var(–text3);font-weight:300;}
+.nav-links{display:flex;gap:.1rem;list-style:none;}
+.nav-links a{display:block;padding:.45rem .9rem;color:var(–text2);text-decoration:none;font-size:.88rem;border-radius:8px;transition:all .2s;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{color:var(–accent);background:rgba(0,229,255,.07);}
+.nav-actions{display:flex;align-items:center;gap:.6rem;}
+.btn-icon{width:38px;height:38px;border:1px solid var(–border);border-radius:9px;background:transparent;color:var(–text2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.95rem;text-decoration:none;}
+.btn-icon:hover{border-color:var(–accent);color:var(–accent);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.hamburger span{width:22px;height:2px;background:var(–text2);border-radius:2px;transition:all .3s;}
+.mobile-nav{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(–bg2);border-bottom:1px solid var(–border);padding:1rem 2rem;z-index:999;}
+.mobile-nav a{display:block;padding:.6rem 0;color:var(–text2);text-decoration:none;font-size:.92rem;border-bottom:1px solid var(–border);transition:color .2s;}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav a:hover{color:var(–accent);}
+
+/* PAGE HERO */
+.page-hero{padding:120px 2rem 3rem;text-align:center;position:relative;z-index:1;}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:.75rem;}
+.page-hero h1 span{background:linear-gradient(120deg,var(–accent),var(–accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero p{color:var(–text2);font-size:1rem;font-weight:300;max-width:500px;margin:0 auto;}
+
+/* CONTAINER */
+.container{max-width:1360px;margin:0 auto;padding:0 2rem;}
+section{position:relative;z-index:1;}
+
+/* AD */
+.ad-wrap{padding:1.2rem 0;position:relative;z-index:1;}
+.ad-unit{background:var(–bg2);border:1px dashed var(–border2);border-radius:var(–r);display:flex;align-items:center;justify-content:center;color:var(–text3);font-size:.75rem;font-family:var(–font-mono);text-align:center;padding:1rem;}
+.ad-banner{min-height:90px;width:100%;}
+.ad-square{min-height:250px;width:100%;}
+.ad-unit small{display:block;font-size:.62rem;margin-bottom:.3rem;}
+
+/* FILTERS */
+.filters-bar{
+display:flex;align-items:center;justify-content:space-between;
+padding:1.5rem 0;flex-wrap:wrap;gap:1rem;
+position:relative;z-index:1;
+}
+.filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap;}
+.filter-tab{
+padding:.4rem 1rem;border:1px solid var(–border);border-radius:50px;
+font-size:.82rem;color:var(–text2);cursor:pointer;transition:all .2s;
+background:transparent;font-family:var(–font-ar);
+}
+.filter-tab:hover,.filter-tab.active{
+border-color:var(–accent);color:var(–accent);
+background:rgba(0,229,255,.06);
+}
+.sort-select{
+padding:.4rem .9rem;border:1px solid var(–border);border-radius:8px;
+background:var(–card);color:var(–text2);font-family:var(–font-ar);
+font-size:.82rem;outline:none;cursor:pointer;
+}
+
+/* MAIN GRID */
+.articles-main{display:grid;grid-template-columns:1fr 300px;gap:2rem;padding-bottom:4rem;}
+.articles-list{display:flex;flex-direction:column;gap:1rem;}
+
+/* ARTICLE CARD HORIZONTAL */
+.art-card{
+background:var(–card);border:1px solid var(–border);border-radius:var(–r);
+display:flex;gap:0;overflow:hidden;
+text-decoration:none;color:inherit;transition:all .3s;cursor:pointer;
+}
+.art-card:hover{border-color:rgba(0,229,255,.28);transform:translateX(-3px);box-shadow:var(–shadow);}
+.art-thumb{
+width:200px;min-height:155px;flex-shrink:0;
+background:linear-gradient(135deg,#0a0a20,#12123a,#080820);
+display:flex;align-items:center;justify-content:center;
+font-size:3rem;position:relative;
+}
+.art-thumb-sm{width:140px;}
+.art-body{padding:1.3rem;flex:1;display:flex;flex-direction:column;}
+.art-cat{
+font-size:.68rem;font-family:var(–font-mono);font-weight:700;
+padding:.22rem .6rem;border-radius:5px;
+display:inline-block;margin-bottom:.6rem;
+}
+.c-ai{background:rgba(123,47,255,.9);color:#ddd0ff;}
+.c-web{background:rgba(0,229,255,.9);color:#000;}
+.c-mob{background:rgba(255,77,109,.9);color:#fff;}
+.c-sec{background:rgba(239,68,68,.9);color:#fff;}
+.c-tools{background:rgba(34,197,94,.9);color:#000;}
+.c-cloud{background:rgba(56,189,248,.9);color:#000;}
+.art-title{font-size:1.05rem;font-weight:700;line-height:1.4;margin-bottom:.5rem;}
+.art-excerpt{font-size:.85rem;color:var(–text2);line-height:1.6;flex:1;font-weight:300;}
+.art-foot{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(–border);}
+.author{display:flex;align-items:center;gap:.5rem;}
+.ava{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(–accent),var(–accent3));display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#000;}
+.author-name{font-size:.75rem;color:var(–text2);}
+.art-meta-r{display:flex;gap:.8rem;font-size:.72rem;color:var(–text3);font-family:var(–font-mono);}
+
+/* FEATURED ARTICLE (big) */
+.art-card-big{
+background:var(–card);border:1px solid var(–border);border-radius:var(–r);
+overflow:hidden;text-decoration:none;color:inherit;transition:all .3s;cursor:pointer;
+}
+.art-card-big:hover{border-color:rgba(0,229,255,.28);transform:translateY(-3px);box-shadow:var(–shadow),var(–glow);}
+.big-thumb{
+height:280px;background:linear-gradient(135deg,#0a0a20,#12123a,#080820);
+display:flex;align-items:center;justify-content:center;font-size:4rem;
+position:relative;overflow:hidden;
+}
+.big-thumb::after{content:’’;position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(17,17,32,.9) 100%);}
+.big-body{padding:1.6rem;}
+.big-title{font-size:1.3rem;font-weight:800;line-height:1.4;margin-bottom:.75rem;}
+.big-excerpt{font-size:.9rem;color:var(–text2);line-height:1.65;font-weight:300;margin-bottom:1rem;}
+.big-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(–border);}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1.5rem;}
+.widget{background:var(–card);border:1px solid var(–border);border-radius:14px;padding:1.4rem;}
+.widget-title{font-size:.88rem;font-weight:700;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;}
+.widget-title::before{content:’’;width:3px;height:15px;background:var(–accent);border-radius:2px;}
+.trend-list{display:flex;flex-direction:column;gap:.7rem;}
+.trend-item{display:flex;align-items:flex-start;gap:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(–border);cursor:pointer;text-decoration:none;color:inherit;transition:color .2s;}
+.trend-item:last-child{border-bottom:none;padding-bottom:0;}
+.trend-item:hover .t-ti{color:var(–accent);}
+.t-n{font-family:var(–font-mono);font-size:1.1rem;font-weight:700;color:var(–border2);line-height:1;min-width:22px;}
+.t-ti{font-size:.83rem;line-height:1.4;font-weight:500;}
+.t-m{font-size:.7rem;color:var(–text3);font-family:var(–font-mono);margin-top:.2rem;}
+.newsletter-w{background:linear-gradient(135deg,rgba(0,229,255,.07),rgba(123,47,255,.07));border-color:rgba(0,229,255,.18);}
+.newsletter-w p{font-size:.83rem;color:var(–text2);margin-bottom:.9rem;font-weight:300;}
+.inp-group{display:flex;flex-direction:column;gap:.45rem;}
+.inp-group input{width:100%;padding:.65rem .9rem;background:var(–bg);border:1px solid var(–border);border-radius:8px;color:var(–text);font-family:var(–font-ar);font-size:.88rem;outline:none;transition:border-color .2s;text-align:right;}
+.inp-group input:focus{border-color:var(–accent);}
+.inp-group button{padding:.65rem;background:linear-gradient(135deg,var(–accent),#007acc);border:none;border-radius:8px;color:#000;font-family:var(–font-ar);font-weight:700;cursor:pointer;transition:opacity .2s;}
+.inp-group button:hover{opacity:.85;}
+.tags-cloud{display:flex;flex-wrap:wrap;gap:.45rem;}
+.tag-pill{padding:.28rem .7rem;border:1px solid var(–border);border-radius:50px;font-size:.73rem;color:var(–text2);cursor:pointer;transition:all .2s;text-decoration:none;}
+.tag-pill:hover{border-color:var(–accent);color:var(–accent);background:rgba(0,229,255,.05);}
+
+/* TUTORIALS SECTION */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;}
+.section-label{display:flex;align-items:center;gap:.75rem;}
+.section-label h2{font-size:1.5rem;font-weight:700;}
+.tag-badge{font-family:var(–font-mono);font-size:.68rem;padding:.2rem .6rem;border:1px solid var(–accent);border-radius:5px;color:var(–accent);}
+.link-all{font-size:.82rem;color:var(–accent);text-decoration:none;font-family:var(–font-mono);border-bottom:1px solid transparent;transition:border-color .2s;}
+.link-all:hover{border-color:var(–accent);}
+.tuts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:4rem;}
+.tut-card{background:var(–card);border:1px solid var(–border);border-radius:14px;padding:1.5rem;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;}
+.tut-card::before{content:’’;position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.08),transparent);}
+.tut-card:hover{border-color:rgba(0,229,255,.28);transform:translateY(-3px);box-shadow:var(–shadow);}
+.tut-level{font-size:.68rem;font-family:var(–font-mono);padding:.2rem .6rem;border-radius:4px;margin-bottom:1rem;display:inline-block;}
+.lv-b{background:rgba(34,197,94,.12);color:#4ade80;border:1px solid rgba(34,197,94,.25);}
+.lv-m{background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.25);}
+.lv-a{background:rgba(239,68,68,.12);color:#f87171;border:1px solid rgba(239,68,68,.25);}
+.tut-ico{font-size:2rem;margin-bottom:.7rem;display:block;}
+.tut-title{font-size:1rem;font-weight:700;margin-bottom:.45rem;}
+.tut-desc{font-size:.83rem;color:var(–text2);line-height:1.55;font-weight:300;}
+.tut-foot{display:flex;justify-content:space-between;margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(–border);font-size:.72rem;color:var(–text3);font-family:var(–font-mono);}
+
+/* LOAD MORE */
+.load-more-wrap{text-align:center;padding:2rem 0;}
+.btn-load{
+padding:.8rem 2.5rem;background:transparent;
+border:1px solid var(–border2);border-radius:10px;
+color:var(–text2);font-family:var(–font-ar);font-size:.95rem;
+cursor:pointer;transition:all .3s;
+}
+.btn-load:hover{border-color:var(–accent);color:var(–accent);}
+
+/* SEARCH OVERLAY */
+.search-overlay{position:fixed;inset:0;background:rgba(6,6,14,.97);z-index:2000;display:flex;align-items:flex-start;justify-content:center;padding-top:15vh;opacity:0;pointer-events:none;transition:opacity .3s;}
+.search-overlay.open{opacity:1;pointer-events:all;}
+.search-box{width:100%;max-width:680px;padding:0 2rem;}
+.search-wrap{display:flex;align-items:center;background:var(–card);border:1px solid var(–border2);border-radius:14px;padding:.9rem 1.4rem;gap:1rem;}
+.search-wrap:focus-within{border-color:var(–accent);}
+#s-input{flex:1;background:transparent;border:none;color:var(–text);font-family:var(–font-ar);font-size:1.15rem;outline:none;text-align:right;}
+.s-hint{font-family:var(–font-mono);font-size:.73rem;color:var(–text3);margin-top:.9rem;text-align:center;}
+
+/* FOOTER */
+footer{background:var(–bg2);border-top:1px solid var(–border);padding:4rem 0 2rem;margin-top:2rem;position:relative;z-index:1;}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.f-brand p{font-size:.85rem;color:var(–text2);margin:1rem 0 1.4rem;font-weight:300;line-height:1.75;}
+.social-row{display:flex;gap:.65rem;}
+.f-col h4{font-size:.88rem;font-weight:700;margin-bottom:1.2rem;color:var(–text);}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.f-links a{font-size:.83rem;color:var(–text2);text-decoration:none;transition:color .2s;font-weight:300;}
+.f-links a:hover{color:var(–accent);}
+.footer-bottom{padding-top:2rem;border-top:1px solid var(–border);display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(–text3);font-family:var(–font-mono);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+.articles-main{grid-template-columns:1fr;}
+.tuts-grid{grid-template-columns:repeat(2,1fr);}
+.footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+.nav-links{display:none;}.hamburger{display:flex;}
+.art-card{flex-direction:column;}.art-thumb{width:100%;min-height:130px;}
+.tuts-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr;gap:2rem;}
+.footer-bottom{flex-direction:column;gap:.8rem;text-align:center;}
+.filter-tabs{gap:.35rem;}
+}
+</style>
+
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb1"></div>
+<div class="bg-orb bg-orb2"></div>
+
+<!-- SEARCH -->
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-wrap">
+      <span style="font-size:1.2rem">🔍</span>
+      <input type="text" id="s-input" placeholder="ابحث في المقالات...">
+      <span style="font-size:1.2rem;cursor:pointer;color:var(--text3)" onclick="closeSearch()">✕</span>
+    </div>
+    <p class="s-hint">اضغط ESC للإغلاق</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">TP</div>
+      <div class="logo-text">
+        <span class="logo-en">TechPulse</span>
+        <span class="logo-ar">تقنية بلا حدود</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="articles.html" class="active">المقالات</a></li>
+      <li><a href="tools.html">الأدوات</a></li>
+      <li><a href="#tutorials">الشروحات</a></li>
+      <li><a href="#footer">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tools.html" class="btn-icon" title="الأدوات">🛠️</a>
+      <button class="btn-icon" onclick="openSearch()">🔍</button>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">🏠 الرئيسية</a>
+    <a href="articles.html">📰 المقالات</a>
+    <a href="tools.html">🛠️ الأدوات</a>
+    <a href="#tutorials">📚 الشروحات</a>
+    <a href="#footer">📩 تواصل معنا</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+
+<div class="page-hero">
+  <h1>📰 <span>المقالات والشروحات</span></h1>
+  <p>أكثر من 500 مقالة تقنية احترافية في البرمجة، الذكاء الاصطناعي، والأمن السيبراني</p>
+</div>
+
+<!-- AD TOP -->
+
+<div class="ad-wrap"><div class="container">
+  <div class="ad-unit ad-banner"><div><small>إعلان / Advertisement</small>728×90 — Banner Ad</div></div>
+</div></div>
+
+<!-- FILTERS -->
+
+<div class="container">
+  <div class="filters-bar">
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterCat(this,'all')">الكل</button>
+      <button class="filter-tab" onclick="filterCat(this,'ai')">🤖 ذكاء اصطناعي</button>
+      <button class="filter-tab" onclick="filterCat(this,'web')">💻 تطوير ويب</button>
+      <button class="filter-tab" onclick="filterCat(this,'mobile')">📱 موبايل</button>
+      <button class="filter-tab" onclick="filterCat(this,'security')">🔐 أمن سيبراني</button>
+      <button class="filter-tab" onclick="filterCat(this,'cloud')">☁️ كلاود</button>
+      <button class="filter-tab" onclick="filterCat(this,'tools')">🛠️ أدوات</button>
+    </div>
+    <select class="sort-select" onchange="sortArticles(this.value)">
+      <option value="newest">الأحدث أولاً</option>
+      <option value="popular">الأكثر قراءة</option>
+      <option value="comments">الأكثر تعليقاً</option>
+    </select>
+  </div>
+</div>
+
+<!-- ARTICLES MAIN -->
+
+<div class="container">
+  <div class="articles-main">
+    <!-- ARTICLES LIST -->
+    <div>
+      <!-- FEATURED BIG -->
+      <a href="#article1" class="art-card-big fade-up" id="article1" data-cat="ai">
+        <div class="big-thumb">🧠</div>
+        <div class="big-body">
+          <span class="art-cat c-ai">🤖 ذكاء اصطناعي</span>
+          <div class="big-title">كيف يعمل ChatGPT من الداخل؟ دليل شامل لفهم الذكاء الاصطناعي التوليدي</div>
+          <p class="big-excerpt">شرح مبسط وعميق لآلية عمل نماذج اللغة الكبيرة، من الـ Transformer إلى الـ RLHF، بأمثلة حقيقية وتوضيحية تجعل الموضوع واضحاً لأي شخص بغض النظر عن خلفيته التقنية.</p>
+          <div class="big-foot">
+            <div class="author"><div class="ava">أح</div><span class="author-name">أحمد الشمري — 4 مايو 2026</span></div>
+            <div class="art-meta-r"><span>👁️ 12,450</span><span>💬 89</span><span>⏱️ 8 دقائق</span></div>
+          </div>
+        </div>
+      </a>
+
+```
+  <div style="margin:1rem 0"></div>
+  <div class="articles-list" id="articlesList">
+
+    <!-- article2 -->
+    <a href="#article2" class="art-card fade-up" id="article2" data-cat="web">
+      <div class="art-thumb">⚡</div>
+      <div class="art-body">
+        <span class="art-cat c-web">💻 تطوير ويب</span>
+        <div class="art-title">Next.js 15 vs Nuxt 4: أيهما تختار لمشروعك القادم؟</div>
+        <p class="art-excerpt">مقارنة شاملة بين أبرز إطارات JavaScript في 2026، مع مثال عملي لكل منهما.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">سم</div><span class="author-name">سارة محمد — 3 مايو 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 8,200</span><span>💬 43</span><span>⏱️ 5 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article3 -->
+    <a href="#article3" class="art-card fade-up" id="article3" data-cat="security">
+      <div class="art-thumb">🔐</div>
+      <div class="art-body">
+        <span class="art-cat c-sec">🔐 أمن سيبراني</span>
+        <div class="art-title">10 ثغرات أمنية يرتكبها المطورون يومياً بدون علمهم</div>
+        <p class="art-excerpt">قائمة بأخطر الثغرات الأمنية الشائعة مع طريقة الإصلاح وكود حقيقي لكل حالة.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">خع</div><span class="author-name">خالد العمري — 2 مايو 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 6,100</span><span>💬 31</span><span>⏱️ 6 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- AD IN FEED -->
+    <div class="ad-unit ad-banner" style="border-radius:var(--r)">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+      <div><small>إعلان / Advertisement</small>In-Feed Ad</div>
+    </div>
+
+    <!-- article4 -->
+    <a href="#article4" class="art-card fade-up" id="article4" data-cat="mobile">
+      <div class="art-thumb">📱</div>
+      <div class="art-body">
+        <span class="art-cat c-mob">📱 موبايل</span>
+        <div class="art-title">Flutter vs React Native 2026: المقارنة النهائية</div>
+        <p class="art-excerpt">أيهما أسرع، أيهما يدعم أكثر المنصات، وأيهما تستخدم الشركات الكبرى؟</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">نح</div><span class="author-name">نور حسين — 1 مايو 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 9,800</span><span>💬 67</span><span>⏱️ 7 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article5 -->
+    <a href="#article5" class="art-card fade-up" id="article5" data-cat="ai">
+      <div class="art-thumb">🎨</div>
+      <div class="art-body">
+        <span class="art-cat c-ai">🤖 ذكاء اصطناعي</span>
+        <div class="art-title">Midjourney v7 vs DALL-E 4: من يفوز في توليد الصور 2026؟</div>
+        <p class="art-excerpt">مقارنة مع أمثلة حقيقية لنفس الـ prompts في كلا الأداتين لتعرف أيهما أفضل.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">مك</div><span class="author-name">محمد كمال — 30 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 3,200</span><span>💬 18</span><span>⏱️ 4 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article6 -->
+    <a href="#article6" class="art-card fade-up" id="article6" data-cat="web">
+      <div class="art-thumb">🐍</div>
+      <div class="art-body">
+        <span class="art-cat c-web">💻 تطوير ويب</span>
+        <div class="art-title">Python 4.0: كل ما تحتاج معرفته عن التحديث الضخم</div>
+        <p class="art-excerpt">ميزات جديدة، تحسينات الأداء، التوافق مع المكتبات القديمة، وكيفية الهجرة من Python 3.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">ري</div><span class="author-name">ريم إبراهيم — 29 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 5,800</span><span>💬 22</span><span>⏱️ 6 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- AD IN FEED 2 -->
+    <div class="ad-unit ad-banner" style="border-radius:var(--r)">
+      <div><small>إعلان / Advertisement</small>In-Feed Ad</div>
+    </div>
+
+    <!-- article7 -->
+    <a href="#article7" class="art-card fade-up" id="article7" data-cat="tools">
+      <div class="art-thumb">⚡</div>
+      <div class="art-body">
+        <span class="art-cat c-tools">🛠️ أدوات</span>
+        <div class="art-title">Cursor AI: كيف يكتب الكود نيابةً عنك ويوفر 80% من وقتك</div>
+        <p class="art-excerpt">شرح كامل لأفضل محرر كود مدعوم بالذكاء الاصطناعي مع نصائح للاستخدام الاحترافي.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">نح</div><span class="author-name">نور حسين — 28 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 7,300</span><span>💬 55</span><span>⏱️ 5 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article8 -->
+    <a href="#article8" class="art-card fade-up" id="article8" data-cat="cloud">
+      <div class="art-thumb">☁️</div>
+      <div class="art-body">
+        <span class="art-cat c-cloud">☁️ كلاود</span>
+        <div class="art-title">AWS vs Google Cloud vs Azure 2026: دليل الاختيار للمطورين</div>
+        <p class="art-excerpt">مقارنة شاملة للأسعار، الخدمات، والأداء بين أكبر ثلاث منصات كلاود في العالم.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">أح</div><span class="author-name">أحمد الشمري — 27 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 4,500</span><span>💬 29</span><span>⏱️ 8 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article9 -->
+    <a href="#article9" class="art-card fade-up" id="article9" data-cat="security">
+      <div class="art-thumb">🛡️</div>
+      <div class="art-body">
+        <span class="art-cat c-sec">🔐 أمن سيبراني</span>
+        <div class="art-title">كيف تحمي موقعك من هجمات SQL Injection خطوة بخطوة</div>
+        <p class="art-excerpt">دليل عملي مع كود حقيقي لحماية قاعدة بياناتك من أخطر هجمات الويب.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">خع</div><span class="author-name">خالد العمري — 26 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 4,100</span><span>💬 37</span><span>⏱️ 7 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- article10 -->
+    <a href="#article10" class="art-card fade-up" id="article10" data-cat="ai">
+      <div class="art-thumb">🤖</div>
+      <div class="art-body">
+        <span class="art-cat c-ai">🤖 ذكاء اصطناعي</span>
+        <div class="art-title">كيف تبني Chatbot ذكي بالعربي باستخدام Claude API</div>
+        <p class="art-excerpt">شرح عملي خطوة بخطوة لبناء روبوت محادثة عربي احترافي بأقل من 50 سطر كود.</p>
+        <div class="art-foot">
+          <div class="author"><div class="ava">سم</div><span class="author-name">سارة محمد — 25 أبريل 2026</span></div>
+          <div class="art-meta-r"><span>👁️ 6,700</span><span>💬 48</span><span>⏱️ 9 دقائق</span></div>
+        </div>
+      </div>
+    </a>
+
+  </div><!-- end articles-list -->
+
+  <!-- LOAD MORE -->
+  <div class="load-more-wrap">
+    <button class="btn-load" onclick="loadMore()">⬇️ تحميل المزيد من المقالات</button>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="ad-unit ad-square">
+    <div><small>إعلان / Ad</small>300×250</div>
+  </div>
+  <div class="widget">
+    <div class="widget-title">🔥 الأكثر قراءة</div>
+    <div class="trend-list">
+      <a href="#" class="trend-item"><span class="t-n">01</span><div><div class="t-ti">10 مواقع تعلم البرمجة مجاناً</div><div class="t-m">👁️ 45,200</div></div></a>
+      <a href="#" class="trend-item"><span class="t-n">02</span><div><div class="t-ti">شرح كامل: ChatGPT API</div><div class="t-m">👁️ 38,900</div></div></a>
+      <a href="#" class="trend-item"><span class="t-n">03</span><div><div class="t-ti">أفضل لابتوب للمبرمجين 2026</div><div class="t-m">👁️ 31,400</div></div></a>
+      <a href="#" class="trend-item"><span class="t-n">04</span><div><div class="t-ti">كيف تربح من الإنترنت كمطور</div><div class="t-m">👁️ 28,700</div></div></a>
+      <a href="#" class="trend-item"><span class="t-n">05</span><div><div class="t-ti">Docker من الصفر للاحتراف</div><div class="t-m">👁️ 22,100</div></div></a>
+    </div>
+  </div>
+  <div class="widget newsletter-w">
+    <div class="widget-title">📬 النشرة البريدية</div>
+    <p>اشترك واستقبل أفضل المقالات أسبوعياً</p>
+    <div class="inp-group">
+      <input type="email" placeholder="بريدك الإلكتروني">
+      <button>اشترك الآن →</button>
+    </div>
+  </div>
+  <div class="widget">
+    <div class="widget-title">🏷️ الوسوم الشائعة</div>
+    <div class="tags-cloud">
+      <a href="#" class="tag-pill">#ChatGPT</a><a href="#" class="tag-pill">#Python</a>
+      <a href="#" class="tag-pill">#React</a><a href="#" class="tag-pill">#NextJS</a>
+      <a href="#" class="tag-pill">#Docker</a><a href="#" class="tag-pill">#Linux</a>
+      <a href="#" class="tag-pill">#Security</a><a href="#" class="tag-pill">#AI</a>
+      <a href="#" class="tag-pill">#JavaScript</a><a href="#" class="tag-pill">#Flutter</a>
+      <a href="#" class="tag-pill">#AWS</a><a href="#" class="tag-pill">#Rust</a>
+    </div>
+  </div>
+  <div class="ad-unit ad-square">
+    <div><small>إعلان / Ad</small>300×250</div>
+  </div>
+</aside>
+```
+
+  </div>
+</div>
+
+<!-- AD MID -->
+
+<div class="ad-wrap"><div class="container">
+  <div class="ad-unit ad-banner"><div><small>إعلان / Advertisement</small>728×90</div></div>
+</div></div>
+
+<!-- TUTORIALS -->
+
+<section style="position:relative;z-index:1;padding-bottom:2rem" id="tutorials">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label"><h2>📚 الشروحات الكاملة</h2><span class="tag-badge">TUTORIALS</span></div>
+    </div>
+    <div class="tuts-grid fade-up" id="tut1">
+      <a href="#tut1" class="tut-card"><span class="tut-level lv-b">مبتدئ</span><span class="tut-ico">🐍</span><div class="tut-title">Python من الصفر للاحتراف</div><div class="tut-desc">دورة شاملة تأخذك من أساسيات البايثون إلى مشاريع الذكاء الاصطناعي</div><div class="tut-foot"><span>📖 24 درس</span><span>⏱️ 6 ساعات</span><span>👁️ 18K</span></div></a>
+      <a href="#tut2" class="tut-card" id="tut2"><span class="tut-level lv-m">متوسط</span><span class="tut-ico">⚛️</span><div class="tut-title">React JS الدليل الشامل 2026</div><div class="tut-desc">تعلم React من الأساسيات إلى Hooks و Context API مع مشاريع تطبيقية</div><div class="tut-foot"><span>📖 32 درس</span><span>⏱️ 9 ساعات</span><span>👁️ 22K</span></div></a>
+      <a href="#tut3" class="tut-card" id="tut3"><span class="tut-level lv-a">متقدم</span><span class="tut-ico">🔐</span><div class="tut-title">الاختراق الأخلاقي والأمن السيبراني</div><div class="tut-desc">تعلم كيف يفكر الهاكر وكيف تحمي أنظمتك — دورة متقدمة بأدوات حقيقية</div><div class="tut-foot"><span>📖 40 درس</span><span>⏱️ 12 ساعة</span><span>👁️ 14K</span></div></a>
+      <a href="#tut4" class="tut-card" id="tut4"><span class="tut-level lv-b">مبتدئ</span><span class="tut-ico">🤖</span><div class="tut-title">الذكاء الاصطناعي بدون برمجة</div><div class="tut-desc">استخدم أدوات AI احترافياً في عملك ودراستك بدون أي خلفية تقنية</div><div class="tut-foot"><span>📖 15 درس</span><span>⏱️ 4 ساعات</span><span>👁️ 31K</span></div></a>
+      <a href="#tut5" class="tut-card" id="tut5"><span class="tut-level lv-m">متوسط</span><span class="tut-ico">🐳</span><div class="tut-title">Docker و Kubernetes العملي</div><div class="tut-desc">من تثبيت Docker إلى نشر التطبيقات على Kubernetes في بيئة إنتاجية</div><div class="tut-foot"><span>📖 28 درس</span><span>⏱️ 8 ساعات</span><span>👁️ 11K</span></div></a>
+      <a href="#tut6" class="tut-card" id="tut6"><span class="tut-level lv-a">متقدم</span><span class="tut-ico">🧠</span><div class="tut-title">بناء نماذج AI مخصصة</div><div class="tut-desc">تعلم Fine-tuning وبناء LLMs خاصة باستخدام PyTorch وHugging Face</div><div class="tut-foot"><span>📖 36 درس</span><span>⏱️ 11 ساعة</span><span>👁️ 8.5K</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <a href="index.html" class="logo"><div class="logo-mark">TP</div><div class="logo-text"><span class="logo-en">TechPulse Arabia</span><span class="logo-ar">تقنية بلا حدود</span></div></a>
+        <p>منصة تقنية عربية متخصصة في شروحات البرمجة، الذكاء الاصطناعي، وأحدث التقنيات — مجاناً للجميع.</p>
+        <div class="social-row">
+          <a href="#" class="btn-icon">𝕏</a><a href="#" class="btn-icon">📘</a>
+          <a href="#" class="btn-icon">📸</a><a href="#" class="btn-icon">▶️</a>
+          <a href="#" class="btn-icon">💼</a>
+        </div>
+      </div>
+      <div class="f-col"><h4>📂 التصنيفات</h4><ul class="f-links">
+        <li><a href="articles.html?cat=ai">🤖 ذكاء اصطناعي</a></li>
+        <li><a href="articles.html?cat=web">💻 تطوير ويب</a></li>
+        <li><a href="articles.html?cat=mobile">📱 موبايل</a></li>
+        <li><a href="articles.html?cat=security">🔐 أمن سيبراني</a></li>
+        <li><a href="articles.html?cat=cloud">☁️ كلاود</a></li>
+        <li><a href="tools.html">🛠️ أدوات</a></li>
+      </ul></div>
+      <div class="f-col"><h4>📚 الشروحات</h4><ul class="f-links">
+        <li><a href="#tut1">Python من الصفر</a></li>
+        <li><a href="#tut2">React JS الشامل</a></li>
+        <li><a href="#tut3">أمن سيبراني</a></li>
+        <li><a href="#tut4">AI بلا كود</a></li>
+        <li><a href="#tut5">Docker عملي</a></li>
+        <li><a href="#tut6">نماذج AI</a></li>
+      </ul></div>
+      <div class="f-col"><h4>ℹ️ الموقع</h4><ul class="f-links">
+        <li><a href="#">من نحن</a></li>
+        <li><a href="#">تواصل معنا</a></li>
+        <li><a href="#">سياسة الخصوصية</a></li>
+        <li><a href="#">شروط الاستخدام</a></li>
+        <li><a href="#">الإعلان معنا</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 TechPulse Arabia — جميع الحقوق محفوظة</span>
+      <span>Made with ❤️ for Arab Tech Community</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openSearch(){document.getElementById('searchOverlay').classList.add('open');document.getElementById('s-input').focus();}
+function closeSearch(){document.getElementById('searchOverlay').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();});
+document.getElementById('searchOverlay').addEventListener('click',function(e){if(e.target===this)closeSearch();});
+function toggleMenu(){const m=document.getElementById('mobileNav');m.style.display=m.style.display==='flex'?'none':'flex';}
+
+function filterCat(btn,cat){
+  document.querySelectorAll('.filter-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.art-card[data-cat]').forEach(card=>{
+    card.style.display=(cat==='all'||card.dataset.cat===cat)?'flex':'none';
+  });
+}
+
+function sortArticles(val){
+  const list=document.getElementById('articlesList');
+  const cards=[...list.querySelectorAll('.art-card')];
+  cards.sort((a,b)=>{
+    if(val==='popular'){
+      const av=parseInt(a.querySelector('.art-meta-r span').textContent.replace(/\D/g,''));
+      const bv=parseInt(b.querySelector('.art-meta-r span').textContent.replace(/\D/g,''));
+      return bv-av;
+    }
+    return 0;
+  });
+  cards.forEach(c=>list.appendChild(c));
+}
+
+function loadMore(){
+  const btn=document.querySelector('.btn-load');
+  btn.textContent='جاري التحميل...';
+  setTimeout(()=>{btn.textContent='✅ تم تحميل جميع المقالات';btn.disabled=true;},1500);
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.art-card,.art-card-big,.tut-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width)*100,y=((e.clientY-r.top)/r.height)*100;
+    card.style.background=`radial-gradient(circle at ${x}% ${y}%,#181830 0%,#111120 100%)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.background='';});
+});
+</script>
+
+</body>
+</html>
