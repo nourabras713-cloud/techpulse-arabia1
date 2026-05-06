@@ -1,1 +1,0 @@
-# techpulse-arabia1
